@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Good Form</title>
+ 	
+ 	<link rel="stylesheet" href="css/style.css">
+	
+	<style>
+		.prompt {
+			width: 12em;
+			float: left;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+	<div id="container">
+
+		<form>
+
+			<fieldset>
+
+				<legend>Left Aligned Labels</legend>
+
+				<div class="chunk">
+					<label for="FullName" class="prompt">Name</label>
+					<input type="text" id="FullName" name="FullName">
+				</div>
+				
+				<div class="chunk float-left">
+					<label for="EmailAddress" class="prompt">Email Address</label>
+					<div class="float-left">
+						<input type="text" id="EmailAddress" name="EmailAddress">
+						<p class="hint">We won't spam you</p>
+					</div>
+				</div>
+
+				<div class="chunk float-left">
+					<p class="prompt">Date of Birth</p>
+					<div class="float-left">
+						<input type="text" id="Month" name="Month" size="2" maxlength="2">&nbsp;-&nbsp;
+						<label for="Month" class="hint">Month</label>
+					</div>
+					<div class="float-left">
+						<input type="text" id="Day" name="Day" size="2" maxlength="2">&nbsp;-&nbsp;
+						<label for="Day" class="hint">Day</label>
+					</div>
+					<div class="float-left">
+						<input type="text" id="Year" name="Year" size="4" maxlength="4">
+						<label for="Year" class="hint">Year</label>
+					</div>
+				</div>				
+				
+				<div class="chunk">
+					<label for="FavoriteDwarf" class="prompt">Favorite Dwarf</label>
+					<select id="FavoriteDwarf" name="FavoriteDwarf">
+						<option value=""></option>
+						<optgroup label="Disney">
+							<option value="Bashful">Bashful</option>
+							<option value="Doc">Doc</option>
+							<option value="Dopey">Dopey</option>
+							<option value="Grumpy">Grumpy</option>
+							<option value="Happy">Happy</option>
+							<option value="Sleepy">Sleepy</option>
+							<option value="Sneezy">Sneezy</option>
+						</optgroup>
+						<optgroup label="Tolkien">
+							<option value="Dwalin">Dwalin</option>
+							<option value="Balin">Balin</option>
+							<option value="Kili">Kili</option>
+							<option value="Fili">Fili</option>
+							<option value="Dori">Dori</option>
+							<option value="Nori">Nori</option>
+							<option value="Ori">Ori</option>
+							<option value="Oin">Oin</option>
+							<option value="Gimli">Gimli</option>
+							<option value="Gloin">Gloin</option>
+							<option value="Bifur">Bifur</option>
+							<option value="Bofur">Bofur</option>
+							<option value="Bombur">Bombur</option>
+							<option value="ThorinOakenshield">Thorin Oakenshield</option>
+						</optgroup>
+					</select>
+				</div>
+				
+				<div class="chunk">
+					<p class="prompt">Are you awesome?</p>
+					<div class="float-left">
+						<div>
+							<input type="radio" id="AwesomeYes" name="Awesome">
+							<label for="AwesomeYes" class="inline">Yes</label>
+						</div>
+						<div>
+							<input type="radio" id="AwesomeNo" name="Awesome">
+							<label for="AwesomeNo" class="inline">No</label>
+						</div>
+						<div>
+							<input type="radio" id="AwesomeMaybe" name="Awesome">
+							<label for="AwesomeMaybe" class="inline">Maybe</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="chunk">
+					<p class="prompt">What are your interests?</p>
+					<div class="float-left">
+						<div>
+							<input type="checkbox" id="InterestSnakeCharming" name="Interests">
+							<label for="InterestSnakeCharming" class="inline">Snake Charming</label>
+						</div>
+						<div>
+							<input type="checkbox" id="InterestClogDancing" name="Interests">
+							<label for="InterestClogDancing" class="inline">Clog Dancing</label>
+						</div>
+						<div>
+							<input type="checkbox" id="InterestWineMaking" name="Interests">
+							<label for="InterestWineMaking" class="inline">Wine Making</label>
+						</div>
+						<div>
+							<input type="checkbox" id="InterestYoga" name="Interests">
+							<label for="InterestYoga" class="inline">Yoga</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="chunk">
+					<label for="Comments" class="prompt">Comments</label>
+					<textarea cols="30" rows="5" id="Comments" name="Comments"></textarea>
+				</div>
+
+				<div class="chunk">
+					<p class="prompt"></p>
+					<input type="reset" value="Reset">
+					<input type="submit" value="Submit">
+				</div>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</body>
+</html>
