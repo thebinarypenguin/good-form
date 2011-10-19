@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Good Form</title>
+ 	
+ 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/smoothness/jquery-ui.css" />	
+			
+	<style>
+		#number-widget, #range-widget {
+			width: 15em;
+			margin: .5em 0 .5em 0;
+		}
+	</style>		
+			
+</head>
+
+<body>
+
+	<div id="container">
+
+		<form>
+
+			<fieldset>
+
+				<legend>jQuery UI Widgets</legend>
+
+				<div class="chunk">
+					<label for="Number" class="prompt">Number</label>
+					<input type="text" id="Number" name="Number" size="3" maxlength="3">
+					<div id="number-widget"></div>
+				</div>
+
+				<div class="chunk float-left">
+					<p class="prompt">Range</p>
+					<div class="float-left">
+						<input type="text" id="RangeMin" name="RangeMin" size="3" maxlength="3">&nbsp;-&nbsp;
+						<label for="RangeMin" class="hint">Min</label>
+					</div>
+					<div class="float-left">
+						<input type="text" id="RangeMax" name="RangeMax" size="3" maxlength="3">
+						<label for="RangeMax" class="hint">Max</label>
+					</div>
+					<br clear="all">
+					<div id="range-widget"></div>			
+				</div>
+				
+				<div class="chunk float-left">
+					<p class="prompt">Date</p>
+					<div class="float-left">
+						<input type="text" id="DateMonth" name="DateMonth" size="2" maxlength="2">&nbsp;-&nbsp;
+						<label for="DateMonth" class="hint">Month</label>
+					</div>
+					<div class="float-left">
+						<input type="text" id="DateDay" name="DateDay" size="2" maxlength="2">&nbsp;-&nbsp;
+						<label for="DateDay" class="hint">Day</label>
+					</div>
+					<div class="float-left">
+						<input type="text" id="DateYear" name="DateYear" size="4" maxlength="4">&nbsp; &nbsp;
+						<label for="DateYear" class="hint">Year</label>
+					</div>
+					<div class="float-left">
+						<input type="hidden" id="date-widget">
+					</div>				
+				</div>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>	
+	<script>
+		$(function() {
+
+
+			/*
+			 * Number Slider
+			 */
+			 
+			var number = $('#Number');
+			var numberWidget = $('#number-widget');
+			 
+			// Create widget
+			numberWidget.slider({
+				range: "min",
+				min: 1,
+				max: 100,
+				value: 42,
+				slide: function(event, ui) { number.val(ui.value); }
+			});
+		
+			// Initialize field from widget
+			number.val(numberWidget.slider('value'));			 
+			 
+			// Update widget when field changes
+			number.keyup(function() { numberWidget.slider('option', 'value', $(this).val()) });			 
+			 
+			 
+			 
+			/*
+			 * Range Slider
+			 */
+
+			var rangeMin    = $('#RangeMin');
+			var rangeMax    = $('#RangeMax');
+			var rangeFields = $('#RangeMin, #RangeMax');
+			var rangeWidget = $('#range-widget');
+			 
+			// Create widget
+			rangeWidget.slider({
+				range: true,				
+				min: 1,
+				max: 100,
+				values: [20,80],
+				slide: function(event, ui) { 
+					rangeMin.val(ui.values[0]);
+					rangeMax.val(ui.values[1]); 
+				}
+				
+			});
+			
+			// Initialize fields from widget
+			rangeMin.val(rangeWidget.slider('values', 0));
+			rangeMax.val(rangeWidget.slider('values', 1));
+			
+			// Update widget when fields change
+			rangeFields.keyup(function() {
+				rangeWidget.slider('option', 'values', [rangeMin.val(), rangeMax.val()]); 
+			});
+			
+
+			
+			/*
+			 * Datepicker 
+			 */
+			 
+			var dateMonth  = $('#DateMonth');
+			var dateDay    = $('#DateDay');
+			var dateYear   = $('#DateYear');
+			var dateFields = $('#DateMonth, #DateDay, #DateYear');
+			var dateWidget = $('#date-widget');			 			
+
+			// Create widget
+			dateWidget.datepicker({
+				showOn: 'button',
+				buttonImage: 'img/calendar.png',
+				buttonImageOnly: true,
+				onSelect: function(dateText, inst) {
+					var datePieces = dateText.split('/');
+					dateMonth.val(datePieces[0]);
+					dateDay.val(datePieces[1]);
+					dateYear.val(datePieces[2]);
+				}
+			});
+			
+			// Show widget when fields gain focus
+			dateFields.focus(function() { dateWidget.datepicker('show'); });
+			
+			// Hide widget when fields lose focus
+			dateFields.blur(function() { dateWidget.datepicker('hide'); });
+			
+			// Update widget when fields change
+			dateFields.keyup(function() {
+				var newDate = new Date(dateYear.val() - 0, dateMonth.val() - 1, dateDay.val() - 0);
+				dateWidget.datepicker('setDate', newDate);
+			});
+
+
+		});
+	</script>
+
+</body>
+</html>
