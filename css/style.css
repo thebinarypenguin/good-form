@@ -211,11 +211,22 @@ td { vertical-align: top; }
    Author: Ethan Zimmerman
    ========================================================================== */
 
-
-	form {
+	#container {
 		margin: 2em 2.5em 2em 2.5em;
 	}
 	
+	
+	/* Index Page */
+	.title { margin: 0; }
+	
+	.description { margin: 0; }
+	
+	.contents ul li { margin: 1em 0 1em 0; }
+	
+	.contents ul li ul { margin: 0; }
+	
+	
+	/* Forms */
 	fieldset {
 		padding: 1em;
 		border: 1px solid black;
@@ -229,7 +240,6 @@ td { vertical-align: top; }
 		display: block;
 	}
 	
-		
 	.chunk {
 		margin: 0;
 		padding: .8em 1em .8em 1em;
@@ -247,6 +257,7 @@ td { vertical-align: top; }
 	}	
 	
 	
+	/* Utility */
 	.inline { 
 		display: inline;
 	}
