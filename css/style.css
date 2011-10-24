@@ -240,6 +240,22 @@ td { vertical-align: top; }
 		display: block;
 	}
 	
+	label.error {
+		display: inline;
+		background: transparent url(../img/invalid.png) no-repeat;
+		margin: 0 0 0 .5em;
+		padding: 0 0 0 22px;
+		font-size: 1.1em;
+	}
+	
+	label.success {
+		display: inline;
+		background: transparent url(../img/valid.png) no-repeat;
+		margin: 0 0 0 .5em;
+		padding: 0 0 0 22px;
+		font-size: 1.1em;
+	}	
+	
 	.chunk {
 		margin: 0;
 		padding: .8em 1em .8em 1em;

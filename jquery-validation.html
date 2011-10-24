@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Good Form</title>
+ 	
+ 	<link rel="stylesheet" href="css/style.css">	
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<form id="basic">
+	
+			<fieldset>
+		
+				<legend>Basic</legend>
+				
+				<p>Simple rules with no parameters. Rules are applied via class attribute.</p>
+			
+				<div class="chunk">
+					<label for="Required" class="prompt">Required</label>
+					<input type="text" id="Required" name="Required" class="required">
+				</div>
+				<div class="chunk">
+					<label for="Number" class="prompt">Number</label>
+					<input type="text" id="Number" name="Number" class="number">
+				</div>
+				<div class="chunk">
+					<label for="Email" class="prompt">Email</label>
+					<input type="text" id="Email" name="Email" class="email">
+				</div>
+				<div class="chunk">
+					<label for="URL" class="prompt">URL</label>
+					<input type="text" id="URL" name="URL" class="url">
+				</div>	
+				<br>			
+				<div class="chunk">
+					<input type="submit" value="Submit">
+				</div>
+		
+			</fieldset>	
+				
+		</form>
+
+		<br>
+
+		<form id="minimum-maximum-range">
+	
+			<fieldset>
+		
+				<legend>Minimums, Maximums and Ranges</legend>
+			
+				<p>These rules have parameters which are set in the Javascript.</p>
+			
+				<div class="chunk">
+					<label for="MinLength" class="prompt">Minimum Length of <strong>10</strong></label>
+					<input type="text" id="MinLength" name="MinLength">
+				</div>
+				<div class="chunk">
+					<label for="MaxLength" class="prompt">Maximum Length of <strong>20</strong></label>
+					<input type="text" id="MaxLength" name="MaxLength">
+				</div>
+				<div class="chunk">
+					<label for="RangeLength" class="prompt">Length Between <strong>10</strong> and <strong>20</strong></label>
+					<input type="text" id="RangeLength" name="RangeLength">
+				</div>
+				<div class="chunk">
+					<label for="MinValue" class="prompt">Minimum Value of <strong>1</strong></label>
+					<input type="text" id="MinValue" name="MinValue">
+				</div>
+				<div class="chunk">
+					<label for="MaxValue" class="prompt">Maximum Value of <strong>5</strong></label>
+					<input type="text" id="MaxValue" name="MaxValue">
+				</div>	
+				<div class="chunk">
+					<label for="RangeValue" class="prompt">Value Between <strong>1</strong> and <strong>5</strong></label>
+					<input type="text" id="RangeValue" name="RangeValue">
+				</div>			
+				<br>
+				<div class="chunk">
+					<input type="submit" value="Submit">
+				</div>
+		
+			</fieldset>	
+				
+		</form>
+
+		<br>
+
+		<form id="match-other-field">
+	
+			<fieldset>
+		
+				<legend>Match Other Field</legend>
+			
+				<div class="chunk">
+					<label for="Password" class="prompt">Password</label>
+					<input type="password" id="Password" name="Password">
+				</div>
+				<div class="chunk">
+					<label for="ConfirmPassword" class="prompt">Confirm Password</label>
+					<input type="password" id="ConfirmPassword" name="ConfirmPassword">
+				</div>
+				<br>
+				<div class="chunk">
+					<input type="submit" value="Submit">
+				</div>
+		
+			</fieldset>	
+				
+		</form>
+
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>	
+	<script>
+		$(function() {
+
+			$("#basic").validate();
+			
+			$('#minimum-maximum-range').validate({
+				rules: {
+					MinLength: { minlength: 10 },
+					MaxLength: { maxlength: 20 },
+					RangeLength: { rangelength: [10,20] },
+					MinValue: { min: 1 },
+					MaxValue: { max: 5 },
+					RangeValue: {range: [1,5] }
+				}
+			});
+			
+			$('#match-other-field').validate({
+				rules: {
+					ConfirmPassword: { equalTo: '#Password' }
+				}
+			});
+			
+
+		});
+	</script>
+
+</body>
+</html>
