@@ -214,15 +214,17 @@ td { vertical-align: top; }
 	#container {
 		margin: 2em 2.5em 2em 2.5em;
 	}
-	
-	
+
+
 	/* Index Page */
+	header { border-bottom: 1px solid #222222; }
+	footer { border-top: 1px solid #222222; }
+
 	.title { margin: 0; }
-	
-	.description { margin: 0; }
+	.description { margin-top: 0; }
+	.contents { padding: 0 1em 1em 1em}
 	
 	.contents ul li { margin: 1em 0 1em 0; }
-	
 	.contents ul li ul { margin: 0; }
 	
 	
@@ -274,11 +276,6 @@ td { vertical-align: top; }
 	
 	
 	/* Utility */
-	.inline { 
-		display: inline;
-	}
-
-	.float-left { 
-		float: left;
-	}
+	.inline { display: inline; }
+	.float-left { float: left; }
 
